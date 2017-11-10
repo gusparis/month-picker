@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="month.min.css">
+    </head>
+    <body>
+    <button id="myBtn">Select month</button>
+    <label id="result"></label>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <div class="main">
+                <div class="month-container">
+                    <div class="main-container">
+                        <div class="year-container">
+                            <button id="left" class="year-navigate-button">
+                                <div>
+                            <span class="year-text-container">
+                                <div id="left-arrow" class="year-arrow-clicked"></div>
+                            </span>
+                                </div>
+                                <svg class="year-button-svg">
+                                    <path d="M 15.41 7.41 L 14 6 l -6 6 l 6 6 l 1.41 -1.41 L 10.83 12 Z"></path>
+                                </svg>
+                            </button>
+                            <div class="year-text-container">
+                                <div class="year">
+                                    <div class="year-text">2017</div>
+                                </div>
+                            </div>
+                            <button id="right" class="year-navigate-button">
+                                <div>
+                            <span class="year-text-container">
+                                <div class="year-arrow-clicked"></div>
+                            </span>
+                                </div>
+                                <svg class="year-button-svg">
+                                    <path d="M 10 6 L 8.59 7.41 L 13.17 12 l -4.58 4.59 L 10 18 l 6 -6 Z"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="month-table-container">
+                            <div class="month-table">
+                                <div class="month-row-list">
+                                    <div class="month-row">
+                                        <button class="month">
+                                            <div></div>
+                                            <span class="month-text">JAN</span>
+                                        </button>
+                                        <button class="month">
+                                            <div class="month-selected"></div>
+                                            <span class="month-text-selected">FEB</span>
+                                        </button>
+                                        <button class="month">
+                                            <div></div>
+                                            <span class="month-text">MAR</span>
+                                        </button>
+                                    </div>
+                                    <div class="month-row">
+                                        <button class="month">
+                                            <div></div>
+                                            <span class="month-text">APR</span>
+                                        </button>
+                                        <button class="month">
+                                            <div></div>
+                                            <span class="month-text">MAY</span>
+                                        </button>
+                                        <button class="month">
+                                            <div></div>
+                                            <span class="month-text">JUN</span>
+                                        </button>
+                                    </div>
+                                    <div class="month-row">
+                                        <button class="month">
+                                            <div></div>
+                                            <span class="month-text">JUL</span>
+                                        </button>
+                                        <button class="month">
+                                            <div></div>
+                                            <span class="month-text">AUG</span>
+                                        </button>
+                                        <button class="month">
+                                            <div></div>
+                                            <span class="month-text">SEP</span>
+                                        </button>
+                                    </div>
+                                    <div class="month-row">
+                                        <button class="month">
+                                            <div></div>
+                                            <span class="month-text">OCT</span>
+                                        </button>
+                                        <button class="month">
+                                            <div></div>
+                                            <span class="month-text">NOV</span>
+                                        </button>
+                                        <button class="month">
+                                            <div></div>
+                                            <span class="month-text">DEC</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>
+    <script
+            src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            var year =  $('.year-text').text();
+            var month = $('.month-text-selected').text();
+            $('#result').text(month + ', ' + year);
+        });
+
+        // Get the modal
+        var modal = document.getElementById('myModal');
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+
+        btn.onclick = function() {
+            modal.style.display = "block";
+        };
+
+        $('.month').hover(
+            function () {
+                $(this).children('div').addClass('month-unselected');
+            },function () {
+                $(this).children('div').removeClass('month-unselected');
+            }
+        ).click(function () {
+            $('.month .month-selected').removeClass('month-selected');
+            $('.month .month-text-selected').removeClass('month-text-selected').addClass('month-text');
+            $(this).children('div').removeClass('month-selected month-unselected').addClass('month-selected');
+            $(this).children('span').addClass('month-text-selected');
+            var year =  $('.year-text').text();
+            var month = $(this).find('.month-text-selected').text();
+            modal.style.display = "none";
+            $('#result').text(month + ', ' + year);
+        });
+
+        $('.year-navigate-button').hover(
+            function() {
+                $(this).find('.year-arrow-clicked').css('opacity', '0.1');
+            }, function() {
+                $(this).find('.year-arrow-clicked').css('opacity', '0');
+            }
+        ).click(
+            function () {
+                var year = $('.year-text').text();
+                switch($(this).attr('id')){
+                    case 'left':
+                        $('.year-text').text(year - 1);
+                        break;
+                    case 'right':
+                        $('.year-text').text(+year + 1)
+
+                }
+                var year =  $('.year-text').text();
+                var month = $('.month-text-selected').text();
+                console.log(month + ', ' + year);
+            }
+        );
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        }
+
+    </script>
+</html>

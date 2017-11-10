@@ -1,0 +1,228 @@
+.main {
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.6);
+  padding: 0px;
+  box-sizing: border-box;
+  overflow-y: hidden;
+  border-top: none;
+  border-bottom: none;
+  min-width: 310px;
+  max-height: 525px;
+}
+
+.month-container {
+  color: rgba(0, 0, 0, 0.87);
+  user-select: none;
+  width: 310px;
+}
+
+.year-container {
+  display: flex;
+  justify-content: space-between;
+  background-color: inherit;
+  height: 48px;
+}
+
+.year-navigate-button {
+  border: 10px;
+  box-sizing: border-box;
+  display: inline-block;
+  font-family: Roboto, sans-serif;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  cursor: pointer;
+  text-decoration: none;
+  margin: 0px;
+  padding: 12px;
+  outline: none;
+  font-size: 0px;
+  font-weight: inherit;
+  position: relative;
+  overflow: visible;
+  transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+  width: 48px;
+  height: 48px;
+  background: none;
+}
+
+.year-button-svg {
+  display: inline-block;
+  color: rgba(0, 0, 0, 0.87);
+  fill: currentcolor;
+  height: 24px;
+  width: 24px;
+  user-select: none;
+  transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+}
+
+.year-text {
+  height: inherit;
+  padding-top: 12px;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
+.year {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  transition: transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+}
+
+.year-text-container {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  width: 100%;
+}
+
+.year-arrow-container {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.year-arrow-clicked {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.87);
+  opacity: 0;
+  transform: scale(1);
+  transition: opacity 2s cubic-bezier(0.23, 1, 0.32, 1) 0ms, transform 1s cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+}
+
+.main-container {
+  display: flex;
+  place-content: space-between;
+  flex-direction: column;
+  font-size: 12px;
+  font-weight: 400;
+  padding: 0px 8px;
+  transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+}
+
+.month-table-container {
+  position: relative;
+  overflow: hidden;
+  height: 140px;
+}
+
+.month-table {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  transition: transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+}
+
+.month-row-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-weight: 400;
+  height: 140px;
+  line-height: 2;
+  position: relative;
+  text-align: center;
+}
+
+.month-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: 34px;
+  margin-bottom: 2px;
+}
+
+.month {
+  border: 10px;
+  box-sizing: border-box;
+  display: inline-block;
+  font-family: Roboto, sans-serif;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  cursor: pointer;
+  text-decoration: none;
+  margin: 0px;
+  padding: 4px 0px;
+  outline: none;
+  font-size: inherit;
+  font-weight: 400;
+  position: relative;
+  width: 42px;
+  background: none;
+}
+
+.month-unselected {
+  background-color: #005fab;
+  border-radius: 30%;
+  height: 34px;
+  left: -5px;
+  opacity: 0.5;
+  position: absolute;
+  top: 0px;
+  transform: scale(1);
+  transition: all 450ms cubic-bezier(0.05, .1, .64, 1) 0ms;
+  width: 50px;
+}
+
+.month-selected {
+  background-color: #005fab;
+  border-radius: 30%;
+  height: 34px;
+  left: -5px;
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  transform: scale(1);
+  transition: all 450ms cubic-bezier(0.05, .1, .64, 1) 0ms;
+  width: 50px;
+}
+
+.month-text {
+  color: rgba(0, 0, 0, 0.87);
+  font-weight: 400;
+  position: relative;
+}
+
+.month-text-selected {
+  color: rgb(255, 255, 255);
+  font-weight: 400;
+  position: relative;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 310px
+}
