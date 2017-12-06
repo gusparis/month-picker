@@ -17,30 +17,19 @@ const MainContainer = styled.div`
     font-weight: 400;
     transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
 `;
+const months = [["Jan","Feb","Mar"],["Apr","May","Jun"],["Jul","Aug","Sep"],["Oct","Nov","Dec"]];
 
-class MonthPicker extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
-    selectMonth = month => {
-        return this.props.selectMonth(month);
-    };
-
-    selectYear = year => {
-        return this.props.selectYear(year);
-    };
-
-    render() {
-        const months = [["Jan","Feb","Mar"],["Apr","May","Jun"],["Jul","Aug","Sep"],["Oct","Nov","Dec"]];
-        return (
-            <MainContainer>
-                <YearSelector onClick={this.selectYear} selected={this.props.year}/>
-                <MonthTable onClick={this.selectMonth} selected={this.props.month} months={months}/>
-            </MainContainer>
-        )
-    }
-}
+const MonthPicker = ({
+    year,
+    month,
+    selectYear,
+    selectMonth
+}) => (
+    <MainContainer>
+        <YearSelector onClick={selectYear} selected={year}/>
+        <MonthTable onClick={selectMonth} selected={month} months={months}/>
+    </MainContainer>
+);
 
 export default connect(
     state => {
