@@ -162,13 +162,12 @@
   font-size: inherit;
   font-weight: 400;
   position: relative;
-  width: 42px;
+  width: 33.3%;
   background: none;
 }
 
 .month-unselected {
   background-color: #005fab;
-  border-radius: 30%;
   height: 34px;
   left: -5px;
   opacity: 0.5;
@@ -176,26 +175,28 @@
   top: 0px;
   transform: scale(1);
   transition: all 450ms cubic-bezier(0.05, .1, .64, 1) 0ms;
-  width: 50px;
+  width: 100%;
+  margin-left: 5px;
 }
 
 .month-selected {
   background-color: #005fab;
-  border-radius: 30%;
   height: 34px;
   left: -5px;
   opacity: 1;
   position: absolute;
+  margin-left: 5px;
   top: 0px;
   transform: scale(1);
   transition: all 450ms cubic-bezier(0.05, .1, .64, 1) 0ms;
-  width: 50px;
+  width: 100%;
 }
 
 .month-text {
   color: rgba(0, 0, 0, 0.87);
   font-weight: 400;
   position: relative;
+  text-align: center;
 }
 
 .month-text-selected {

@@ -2,32 +2,42 @@ let webpack = require('webpack');
 let path = require('path');
 
 let BUILD_DIR = path.resolve(__dirname, 'src/server/static/assets/js');
-let APP_DIR = path.resolve(__dirname, '.');
+let APP_DIR = path.resolve(__dirname, 'src/client/app');
+let SERVER_DIR = path.resolve(__dirname, 'src/server/static');
 
 let config = {
-    entry: APP_DIR + "/src/client/app/index.jsx",
+    entry: APP_DIR + '/index.jsx',
     output: {
         path: BUILD_DIR,
-        filename: 'app.js'
+        filename: 'app.js',
+        publicPath: '/assets/js'
     },
     module: {
-        rules: [{
-            test: /\.jsx?$/,
-            use: [{
+        loaders: [
+            {
+                test: /\.jsx?$/,
+                include: APP_DIR,
                 loader: 'babel-loader',
-                options: {
+                query: {
                     presets: ["es2015", "react", "stage-0"]
                 }
-            }]
-        }]
-    },
-    resolve: {
-        extensions: ['.js', '.jsx'],
-        modules: [
-            path.join(APP_DIR, "src/client/app"),
-            "node_modules"
+            }, {
+                test: /\.css$/,
+                include: /node_modules/,
+                loaders: ['style-loader', 'css-loader']
+            }
         ]
     },
+    plugins: [
+    ],
+    devServer: {
+        port: 3000,
+        contentBase: SERVER_DIR
+    },
+    resolve: {
+        extensions: ['.js','.jsx', '.css']
+    },
+
     watch: true
 };
 
