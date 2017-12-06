@@ -20,6 +20,8 @@ const Button = styled.button`
     position: relative;
     width: 33.3%;
     background: none;
+    will-change: opacity, transform !important;
+    transition: all .3s ease-out !important;
 `;
 
 const MonthText = styled.span`
@@ -63,19 +65,25 @@ const MonthRowList = styled.div`
 
 const Table = styled.div`
     position: absolute;
-    height: 100%;
     width: 100%;
     top: 0px;
     left: 0px;
     transition: transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
 `;
 
+const MonthTableContainer = styled.div`
+    position: relative;
+    overflow: hidden;
+    height: 140px
+`;
+
 const MonthButton = ({
     month,
     selected,
-    onClick
+    onClick,
+    number
 }) => (
-    <Button onClick={onClick}>
+    <Button onClick={()=>onClick(number)}>
         {selected ? <MonthSelected/> : null}
         <MonthText style={{color: `${!selected ? 'rgba(0, 0, 0, 0.87)' : 'white'}`}}>{month}</MonthText>
     </Button>
@@ -86,16 +94,18 @@ const MonthTable = ({
     selected,
     onClick
 }) => (
-    <Table>
-        <MonthRowList>
-            {
-                months.map((row,k)=>{ return <MonthRow key={k}>
-                    {row.map((month,l)=>{ return <MonthButton onClick={onClick} month={month} key={l} selected={selected === l+1*k+1}/>})}
-                </MonthRow>
-                })
-            }
-        </MonthRowList>
-    </Table>
+    <MonthTableContainer>
+        <Table>
+            <MonthRowList>
+                {
+                    months.map((row,k)=>{ return <MonthRow key={k}>
+                        {row.map((month,l)=>{ return <MonthButton onClick={onClick} number={+(3*k)+(l+1)} month={month} key={l} selected={selected === +(3*k)+(l+1)}/>})}
+                    </MonthRow>
+                    })
+                }
+            </MonthRowList>
+        </Table>
+    </MonthTableContainer>
 );
 
 export default MonthTable;

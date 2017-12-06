@@ -3,7 +3,7 @@
  */
 import { SELECT_MONTH, SELECT_YEAR } from '../actions/types';
 import moment from 'moment';
-const INITIAL_STATE = {month: +moment().get('month')+1, year: moment().get('year')};
+const INITIAL_STATE = {month: '', year: moment().get('year')};
 
 export default (state = INITIAL_STATE, action) => {
     switch(action.type) {
