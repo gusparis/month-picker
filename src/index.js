@@ -14,7 +14,6 @@ const MainContainer = styled.div`
     width: 100%;
     height: 100%;
     font-weight: 400;
-    transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
     overflow: hidden;
 `;
 
@@ -23,7 +22,6 @@ const Button = styled.button`
     box-sizing: border-box;
     display: inline-block;
     font-family: Roboto, sans-serif;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     cursor: pointer;
     text-decoration: none;
     margin: 0px;
@@ -34,8 +32,6 @@ const Button = styled.button`
     position: relative;
     width: 33.3%;
     background: none;
-    will-change: opacity, transform !important;
-    transition: all .3s ease-out !important;
 `;
 
 const MonthText = styled.span`
@@ -53,8 +49,6 @@ const MonthSelected = styled.div`
     position: absolute;
     margin-left: 5px;
     top: 0px;
-    transform: scale(1);
-    transition: all 450ms cubic-bezier(0.05, 0.1, 0.64, 1) 0ms;
     width: 100%;
 `;
 
@@ -82,7 +76,6 @@ const Table = styled.div`
     width: 100%;
     top: 0px;
     left: 0px;
-    transition: transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
 `;
 
 const MonthTableContainer = styled.div`
@@ -103,7 +96,6 @@ const YearNavigateButton = styled.button`
     box-sizing: border-box;
     display: inline-block;
     font-family: Roboto, sans-serif;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     cursor: pointer;
     text-decoration: none;
     margin: 0px;
@@ -113,7 +105,6 @@ const YearNavigateButton = styled.button`
     font-weight: inherit;
     position: relative;
     overflow: visible;
-    transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
     width: 48px;
     height: 48px;
     background: none;
@@ -135,7 +126,6 @@ const Year = styled.div`
     width: 100%;
     top: 0px;
     left: 0px;
-    transition: transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; 
 `;
 
 const YearText = styled.div`
