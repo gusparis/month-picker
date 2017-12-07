@@ -1,16 +1,14 @@
 let webpack = require('webpack');
 let path = require('path');
 
-let BUILD_DIR = path.resolve(__dirname, 'src/server/static/assets/js');
-let APP_DIR = path.resolve(__dirname, 'src/client/app');
-let SERVER_DIR = path.resolve(__dirname, 'src/server/static');
+let BUILD_DIR = path.resolve(__dirname, '.');
+let APP_DIR = path.resolve(__dirname, 'src');
 
 let config = {
-    entry: APP_DIR + '/index.jsx',
+    entry: APP_DIR + '/index.js',
     output: {
         path: BUILD_DIR,
-        filename: 'app.js',
-        publicPath: '/assets/js'
+        filename: 'app.js'
     },
     module: {
         loaders: [
@@ -26,10 +24,6 @@ let config = {
     },
     plugins: [
     ],
-    devServer: {
-        port: 3000,
-        contentBase: SERVER_DIR
-    },
     resolve: {
         extensions: ['.js','.jsx']
     },

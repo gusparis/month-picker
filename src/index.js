@@ -220,7 +220,7 @@ const MonthPicker = ({
 );
 
 const INITIAL_STATE = {month: moment().get('month'), year: moment().get('year')};
-export const pickerReducer = (state = INITIAL_STATE, action) => {
+export const monthPickerReducer = (state = INITIAL_STATE, action) => {
     switch(action.type) {
         case SELECT_MONTH:
             return {...state, month: action.payload};
@@ -233,8 +233,8 @@ export const pickerReducer = (state = INITIAL_STATE, action) => {
 export default connect(
     state => {
         return {
-            month: state.picker.month,
-            year: state.picker.year
+            month: state.monthPicker.month,
+            year: state.monthPicker.year
         }
     }, dispatch => {
         return {
