@@ -21,10 +21,6 @@ let config = {
                 query: {
                     presets: ["es2015", "react", "stage-0"]
                 }
-            }, {
-                test: /\.css$/,
-                include: /node_modules/,
-                loaders: ['style-loader', 'css-loader']
             }
         ]
     },
@@ -35,7 +31,7 @@ let config = {
         contentBase: SERVER_DIR
     },
     resolve: {
-        extensions: ['.js','.jsx', '.css']
+        extensions: ['.js','.jsx']
     },
 
     watch: true
