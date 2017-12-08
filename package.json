@@ -7,13 +7,11 @@
   },
   "scripts": {
     "start": "nodemon --use_strict index.js",
-    "bundle": "webpack --config ./webpack.config.js --colors",
-    "bundle:dev": "webpack-dev-server --watch-poll --progress --inline --hot"
+    "bundle": "webpack --config ./webpack.config.js --colors"
   },
   "dependencies": {
     "moment": "^2.19.3",
     "react": "^16.1.0",
-    "react-dom": "^16.1.0",
     "react-redux": "^5.0.6",
     "react-tap-event-plugin": "^3.0.2",
     "redux": "^3.7.2",
@@ -27,7 +25,6 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
-    "webpack": "^3.5.5",
-    "webpack-dev-server": "^2.9.5"
+    "webpack": "^3.5.5"
   }
 }

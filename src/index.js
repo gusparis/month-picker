@@ -189,23 +189,23 @@ const YearSelector = ({
     </YearContainer>
 );
 
-const defaultMonths = [["Jan","Feb","Mar"],["Apr","May","Jun"],["Jul","Aug","Sep"],["Oct","Nov","Dec"]];
 
-const formatDate = (m,y) => {
-    return moment(`${y}-${m}`).format('MMM YYYY');
+const formatDate = (m,y, format) => {
+    return moment(`${y}-${m}`).format(format);
 };
 
 const MonthPicker = ({
      year,
      month,
-     months,
      selectYear,
      selectMonth,
-     onChange
+     onChange,
+     months = [["Jan","Feb","Mar"],["Apr","May","Jun"],["Jul","Aug","Sep"],["Oct","Nov","Dec"]],
+     format = 'MMM YYYY'
 }) => (
     <MainContainer>
         <YearSelector onClick={selectYear} selected={year}/>
-        <MonthTable onClick={(m)=>{onChange(formatDate(m, year)); selectMonth(m)}} selected={month} months={months ? months : defaultMonths}/>
+        <MonthTable onClick={(m)=>{onChange(formatDate(m, year, format)); selectMonth(m)}} selected={month} months={months}/>
     </MainContainer>
 );
 
